@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer, useState } from 'react';
+import React, { useContext, useEffect, useReducer} from 'react';
 import dynamic from 'next/dynamic';
 import Layout from '../../components/Layout';
 import { Store } from '../../utils/Store';
@@ -27,7 +27,6 @@ import useStyles from '../../utils/styles';
 import { useSnackbar } from 'notistack';
 import { getError } from '../../utils/error';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
-import AccountBalance from '@material-ui/icons/AccountBalance';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -117,7 +116,7 @@ function Order({ params }) {
       loadPaypalScript();
     }
   }, [order, successPay]);
-  const { closeSnackbar, enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
 
   function createOrder(data, actions) {
     return actions.order
@@ -246,7 +245,7 @@ function Order({ params }) {
                               <Typography>{item.quantity}</Typography>
                             </TableCell>
                             <TableCell align="right">
-                              <Typography>${item.price}</Typography>
+                              <Typography>RM{item.price}</Typography>
                             </TableCell>
                           </TableRow>
                         ))}
@@ -276,11 +275,23 @@ function Order({ params }) {
                 <ListItem>
                   <Grid container>
                     <Grid item xs={6}>
-                      <Typography>Tax:</Typography>
+                      <Typography>Pet Support and Insurance Fee:</Typography>
                     </Grid>
                     <Grid item xs={6}>
                       <Typography align="right">RM{taxPrice}</Typography>
                     </Grid>
+                    
+                  </Grid>
+                </ListItem>
+                <ListItem>
+                  <Grid container>
+                    <Grid item xs={6}>
+                      <Typography></Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography align="right">RM{shippingPrice}</Typography>
+                    </Grid>
+                    
                   </Grid>
                 </ListItem>
                 <ListItem>

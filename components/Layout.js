@@ -36,11 +36,13 @@ import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
 import axios from 'axios';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Layout({ title, description, children }) {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { darkMode, cart, userInfo } = state;
+  const logo = require('../public/images/logo.jpg')
   const theme = createTheme({
     typography: {
       h1: {
@@ -144,11 +146,15 @@ export default function Layout({ title, description, children }) {
               </IconButton>
               <NextLink href="/" passHref>
                 <Link>
+                <Image
+                alt="logo"
+                src={logo}
+                height={100}
+                width={200}
+                layout="fixed"
+                />
                   
-                  <img
-                  src="https://scontent.fmkz1-1.fna.fbcdn.net/v/t1.15752-9/240507555_925757041354922_5079027721534077885_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=ae9488&_nc_ohc=Ta3mRs1jSD8AX-0jcpV&_nc_ht=scontent.fmkz1-1.fna&oh=af0b57f60f682e133f8cb7af3cf894a1&oe=615586D1"
-                  width="200px"
-                  height="100px"/>
+                 
                  
                 </Link>
               </NextLink>
@@ -165,7 +171,7 @@ export default function Layout({ title, description, children }) {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <Typography>Pet's category</Typography>
+                    <Typography>Pet category</Typography>
                     <IconButton
                       aria-label="close"
                       onClick={sidebarCloseHandler}
@@ -284,20 +290,7 @@ export default function Layout({ title, description, children }) {
         </AppBar>
         <Container className={classes.main}>{children}</Container>
         <footer className={classes.footer}>
-          <Link href="https://www.facebook.com/Emilyn-Pet-Store-110267560648709">
-          <img
-          src="https://www.dpreview.com/files/p/articles/4698742202/facebook.jpeg"
-          width="30px"
-          height="30px"/>
-          <Typography>Follow us on Facebook by clicking the Facebook icon </Typography>
-          </Link>
-          <Link href="https://www.instagram.com/queeniemalaysia/">
-          <img
-          src="https://image.similarpng.com/very-thumbnail/2020/05/Glossy-Instagram-icon-PNG.png"
-          width="30px"
-          height="30px"/>
-          <Typography>Follow us on our new Instagram account by clicking the Instagram icon </Typography>
-          </Link>
+         
           <Typography>All rights reserved. Queenie  in corporation with Emilyn Pet Store Malaysia.</Typography>
           
         </footer>

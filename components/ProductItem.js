@@ -4,7 +4,6 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
-  CardMedia,
   Typography,
 } from '@material-ui/core';
 import React from 'react';
@@ -18,7 +17,7 @@ export default function ProductItem({ product, addToCartHandler }) {
       <NextLink href={`/product/${product.slug}`} passHref>
         <CardActionArea>
           <Image
-          className="img"
+          alt="image"
             src={product.image}
             title={product.name}
             width="640px"

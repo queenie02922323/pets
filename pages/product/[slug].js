@@ -79,12 +79,13 @@ export default function ProductScreen(props) {
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.countInStock < quantity) {
-      window.alert('Sorry. Product is out of stock');
+      window.alert('Sorry. this pet had sold');
       return;
     }
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
     router.push('/cart');
   };
+  const whatsapp=require('../../public/images/whatsapps.png')
 
   return (
     <Layout title={product.name} description={product.description}>
@@ -128,22 +129,29 @@ export default function ProductScreen(props) {
             <ListItem>
               <Typography> Description: {product.description}</Typography>
             </ListItem>
+   
             <ListItem>
-            <Link href="http://www.wasap.my/60168120292">
+              <NextLink href="http://www.wasap.my/60168120292">
+            <Link href="http://www.wasap.my/60168120292" passhref>
+
             <Button
                     type="submit"
                     fullWidth
                     variant="contained"
                     color="secondary"
                   >
-                    <img
-                    src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN"
-                    width="30px"
-                    height="30px"/>
+                    <Image
+                    alt="image"
+                    src={whatsapp}
+                    width={30}
+                    height={30}
+                    layout="fixed"/>
                     {'   '}
                     WhatsApp owner for more info
                   </Button>
+  
                   </Link>
+                  </NextLink>
             </ListItem>
             <h5 className="alert">##NOTE: One of Queenie Pet Profesional team member will be assigned to each chat to make sure you get the best advices , prices from the owner  & also avoid any fraud cases that are happening most of the time in the other platform =) </h5>
           </List>
@@ -168,7 +176,7 @@ export default function ProductScreen(props) {
                   </Grid>
                   <Grid item xs={6}>
                     <Typography>
-                      {product.countInStock > 0 ? 'Available' : 'Unavailable'}
+                      {product.countInStock > 0 ? 'Availability' : 'Unavailable'}
                     </Typography>
                   </Grid>
                 </Grid>

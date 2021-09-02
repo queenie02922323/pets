@@ -182,7 +182,7 @@ function PlaceOrder() {
               <ListItem>
                 <Grid container>
                   <Grid item xs={6}>
-                    <Typography>Pets:</Typography>
+                    <Typography>Items:</Typography>
                   </Grid>
                   <Grid item xs={6}>
                     <Typography align="right">RM{itemsPrice}</Typography>
@@ -202,10 +202,10 @@ function PlaceOrder() {
               <ListItem>
                 <Grid container>
                   <Grid item xs={6}>
-                    <Typography>Tax:</Typography>
+                    <Typography></Typography>
                   </Grid>
                   <Grid item xs={6}>
-                    <Typography align="right">RM0</Typography>
+                    <Typography align="right"></Typography>
                   </Grid>
                 </Grid>
               </ListItem>
